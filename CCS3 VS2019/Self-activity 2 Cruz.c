@@ -9,88 +9,49 @@ int multiply(int n1,int n2);
 int divide(int n1,int n2);
 */
 
-int menu(int n1, int n2, int *result, char *operation) {
-        int choice;
-        printf("Choose an operation:\n");
+int menu() {
+        int input;
+        printf("Choose an operation. Type the number:\n");
         printf("1. Addition\n");
         printf("2. Subtraction\n");
         printf("3. Multiplication\n");
         printf("4. Division\n");
-
-        do {
-            printf("Choice: ");
-            scanf("%d", &choice);
-            if (choice == 1) { //Addition
-                *result = n1 + n2;
-                *operation = '+';
-            }
-            else if (choice == 2) { //Subtraction
-                *result = n1 - n2;
-                *operation = '-';
-            }
-            else if (choice == 3) { //Multiplication
-                *result = n1 * n2;
-                *operation = '*';
-            }
-            else if (choice == 4) { //Division
-                *result = n1 / n2;
-                *operation = '/';
-            }
-            else
-                printf("Incorrect input. Try again. \n");
-        } while (choice < 1 || choice > 4);
-
-        /* DEBUG PURPOSES
-        printf("Result I think is: %d\n", *result);
-        */
-
-        /*
-        do {
-            printf("Choice: ");
-            scanf("%d", &choice);
-            if (choice == 1) { //Addition
-                *result = n1 + n2;
-                *operation = "+";
-            }
-            else if (choice == 2) //Subtraction
-                return n1 - n2;
-            else if (choice == 3) //Multiplication
-                return n1 * n2;
-            else if (choice == 4) //Division
-                return n1 / n2;
-            else
-                printf("Incorrect input. Try again. \n\n");
-        } while (choice < 1 || choice > 4);
-        */
-
-        // TEST CODE BELOW
-        /*
-        while (choice < 1 || choice > 4) {
-            printf("Choice: ");
-            scanf("%d", &choice);
-            if (choice == 1) //Addition
-                return n1 + n2;
-            else if (choice == 2)
-                return n1 - n2;
-            else if (choice == 3)
-                return n1 * n2;
-            else if (choice == 4)
-                return n1 / n2;
-            else
-                printf("Incorrect input. Try again. \n\n");
-        }
-        */
+        printf("Choice: ");
+        scanf("%d", &input);
+        return input;
 }
 
+
 main() {
-	int num1,num2,res;
-	char op;
+	int num1,num2,choice;
 	printf("Enter first number: ");
 	scanf("%d",&num1);
 	printf("Enter second number: ");
 	scanf("%d",&num2);
-	menu(num1, num2, &res, &op);
-	printf("Result: %d %c %d = %d", num1, op, num2, res);
+
+	do {
+        choice = menu();
+
+        if (choice == 1) //Addition
+            printf("%d + %d = %d", num1, num2, num1 + num2);
+        else if (choice == 2) { //Subtraction
+            if (num1 > num2)
+                printf("%d - %d = %d", num1, num2, num1 - num2);
+            else
+                printf("%d - %d = %d", num2, num1, num2 - num1);
+        }
+        else if (choice == 3) //Multiplication
+            printf("%d * %d = %d", num1, num2, num1 * num2);
+        else if (choice == 4) { //Division
+            if (num1 > num2)
+                printf("%d / %d = %d", num1, num2, num1 / num2);
+            else
+                printf("%d / %d = %d", num2, num1, num2 / num1);
+        }
+        else
+            printf("Incorrect input. Please try again. \n \n");
+	} while (choice < 1 || choice > 4);
+
 	return 0;
 }
 /*

@@ -19,8 +19,9 @@ int menu() {
         return input;
 }
 
+
 main() {
-	int num1,num2,choice, result;
+	int num1,num2,choice;
 	printf("Enter first number: ");
 	scanf("%d",&num1);
 	printf("Enter second number: ");
@@ -29,33 +30,21 @@ main() {
 	do {
         choice = menu();
 
-        if (choice == 1) { //Addition
-            result = add(num1, num2);
-            printf("%d + %d = %d", num1, num2, result);
-        }
+        if (choice == 1) //Addition
+            printf("%d + %d = %d", num1, num2, num1 + num2);
         else if (choice == 2) { //Subtraction
-            if (num1 > num2) {
-                result = subtract(num1, num2);
-                printf("%d - %d = %d", num1, num2, result);
-            }
-            else {
-                result = subtract(num2, num1);
-                printf("%d - %d = %d", num2, num1, result);
-            }
+            if (num1 > num2)
+                printf("%d - %d = %d", num1, num2, num1 - num2);
+            else
+                printf("%d - %d = %d", num2, num1, num2 - num1);
         }
-        else if (choice == 3) { //Multiplication
-            result = multiply(num1, num2);
-            printf("%d * %d = %d", num1, num2, result);
-        }
+        else if (choice == 3) //Multiplication
+            printf("%d * %d = %d", num1, num2, num1 * num2);
         else if (choice == 4) { //Division
-            if (num1 > num2) {
-                result = divide(num1, num2);
-                printf("%d / %d = %d", num1, num2, result);
-            }
-            else {
-                result = divide(num2, num1);
-                printf("%d / %d = %d", num2, num1, result);
-            }
+            if (num1 > num2)
+                printf("%d / %d = %d", num1, num2, num1 / num2);
+            else
+                printf("%d / %d = %d", num2, num1, num2 / num1);
         }
         else
             printf("Incorrect input. Please try again. \n \n");

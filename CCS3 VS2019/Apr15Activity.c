@@ -13,7 +13,8 @@ typedef struct
 
 void Initialize(Student s[]) {
     for (int i = 0; i < max; i++) {
-        strcpy(s[i].name, " "); //This gets the compiler to compile
+        s[i].name = " ";
+        // strcpy(s[i].name, " "); //This gets the compiler to compile
         s[i].score = 0.0;
         s[i].grade = ' ';
     }

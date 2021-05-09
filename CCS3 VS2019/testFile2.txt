@@ -1,0 +1,2 @@
+Sir, quick question regarding the activity you gave,
+are newline characters counted?

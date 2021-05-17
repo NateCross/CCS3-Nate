@@ -75,8 +75,8 @@ void displayCharCounter(int *charCounter, int index, char letter) {
 
 int main() {
     FILE *fptr;
-    char *fileName[100];
-    int *charCounter[53] = {0};
+    char fileName[100];
+    int charCounter[53] = {0};
 
     inputFileName(fileName, fptr);
 

@@ -13,10 +13,9 @@ typedef struct
 
 void Initialize(Student s[]) {
     for (int i = 0; i < max; i++) {
-        s[i].name = " ";
-        // strcpy(s[i].name, " "); //This gets the compiler to compile
-        s[i].score = 0.0;
-        s[i].grade = ' ';
+        strcpy((s + i)->name, " "); //This gets the compiler to compile
+        (s + i)->score = 0.0;
+        (s + i)->grade = ' ';
     }
 }
 
@@ -24,6 +23,8 @@ void InputScore(Student s[]) {
     for (int i = 0; i < max; i++) {
         system("cls");
         fflush(stdin);
+        printf("%d\n", s + i); //they are equivalent
+        printf("%d\n", &s[i]);
         printf("Student %d\n", i + 1);
 
         printf("Name: ");
